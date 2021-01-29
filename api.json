@@ -763,17 +763,26 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Nursery"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Nursery"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Nursery"
+                  }
                 }
               }
             }
@@ -953,6 +962,85 @@
           "refreshToken": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Nursery": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roomLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "maximumCapacity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "patternNum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeSlotID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeSlot": {
+            "type": "string",
+            "nullable": true
+          },
+          "sun": {
+            "type": "boolean"
+          },
+          "mon": {
+            "type": "boolean"
+          },
+          "tue": {
+            "type": "boolean"
+          },
+          "wed": {
+            "type": "boolean"
+          },
+          "thu": {
+            "type": "boolean"
+          },
+          "fri": {
+            "type": "boolean"
+          },
+          "sat": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
