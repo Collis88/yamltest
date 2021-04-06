@@ -98,7 +98,7 @@
         ],
         "parameters": [
           {
-            "name": "site",
+            "name": "siteName",
             "in": "query",
             "schema": {
               "type": "string",
@@ -130,7 +130,7 @@
             }
           },
           {
-            "name": "PageNumber",
+            "name": "pageNumber",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -138,7 +138,7 @@
             }
           },
           {
-            "name": "PageSize",
+            "name": "pageSize",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -167,7 +167,7 @@
         ],
         "parameters": [
           {
-            "name": "site",
+            "name": "siteName",
             "in": "query",
             "schema": {
               "type": "string",
@@ -206,7 +206,7 @@
             }
           },
           {
-            "name": "PageNumber",
+            "name": "pageNumber",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -214,7 +214,7 @@
             }
           },
           {
-            "name": "PageSize",
+            "name": "pageSize",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -243,7 +243,7 @@
         ],
         "parameters": [
           {
-            "name": "site",
+            "name": "siteName",
             "in": "query",
             "schema": {
               "type": "string",
@@ -311,7 +311,7 @@
             }
           },
           {
-            "name": "PageNumber",
+            "name": "pageNumber",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -319,7 +319,7 @@
             }
           },
           {
-            "name": "PageSize",
+            "name": "pageSize",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -348,7 +348,7 @@
         ],
         "parameters": [
           {
-            "name": "site",
+            "name": "siteName",
             "in": "query",
             "schema": {
               "type": "string",
@@ -394,7 +394,7 @@
             }
           },
           {
-            "name": "PageNumber",
+            "name": "pageNumber",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -402,7 +402,7 @@
             }
           },
           {
-            "name": "PageSize",
+            "name": "pageSize",
             "in": "query",
             "schema": {
               "type": "integer",
