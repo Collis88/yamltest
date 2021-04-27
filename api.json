@@ -91,6 +91,158 @@
         }
       }
     },
+    "/AgedBalance": {
+      "get": {
+        "tags": [
+          "AgedBalance"
+        ],
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "showZeroBalances",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "companyBillPayers",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "includeUnfinalised",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "excludeDepositBills",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgedBalancePagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/BookingPattern": {
+      "get": {
+        "tags": [
+          "BookingPattern"
+        ],
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "childID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingPatternPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Child": {
       "get": {
         "tags": [
@@ -341,6 +493,307 @@
         }
       }
     },
+    "/FundedHours": {
+      "get": {
+        "tags": [
+          "FundedHours"
+        ],
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "allAges",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "under1",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "age1",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "age2",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "age3",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "age4",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "age5",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FundedHoursPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Grant": {
+      "get": {
+        "tags": [
+          "Grant"
+        ],
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Grant/Child": {
+      "get": {
+        "tags": [
+          "Grant"
+        ],
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "grantDesc",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantChildPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Nursery": {
+      "get": {
+        "tags": [
+          "Nursery"
+        ],
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "room",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NurseryPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/StaffOccupancy": {
       "get": {
         "tags": [
@@ -423,6 +876,82 @@
           }
         }
       }
+    },
+    "/WeeklyOccupancy": {
+      "get": {
+        "tags": [
+          "WeeklyOccupancy"
+        ],
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "room",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "includeMarkedOff",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeeklyOccupancyPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -452,6 +981,329 @@
         "properties": {
           "refreshToken": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgedBalance": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pShowZeroBalances": {
+            "type": "string",
+            "nullable": true
+          },
+          "pCompanyBillpayers": {
+            "type": "string",
+            "nullable": true
+          },
+          "pUnfinalised": {
+            "type": "string",
+            "nullable": true
+          },
+          "pExcludeDeposits": {
+            "type": "string",
+            "nullable": true
+          },
+          "site": {
+            "type": "string",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingSalutation": {
+            "type": "string",
+            "nullable": true
+          },
+          "telhome": {
+            "type": "string",
+            "nullable": true
+          },
+          "telmob": {
+            "type": "string",
+            "nullable": true
+          },
+          "telwork": {
+            "type": "string",
+            "nullable": true
+          },
+          "billpayer": {
+            "type": "string",
+            "nullable": true
+          },
+          "reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "billPayerID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "children": {
+            "type": "string",
+            "nullable": true
+          },
+          "balance": {
+            "type": "number",
+            "format": "double"
+          },
+          "periodKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "period2Heading": {
+            "type": "string",
+            "nullable": true
+          },
+          "period3Heading": {
+            "type": "string",
+            "nullable": true
+          },
+          "period4Heading": {
+            "type": "string",
+            "nullable": true
+          },
+          "current": {
+            "type": "number",
+            "format": "double"
+          },
+          "period2": {
+            "type": "number",
+            "format": "double"
+          },
+          "period3": {
+            "type": "number",
+            "format": "double"
+          },
+          "period4": {
+            "type": "number",
+            "format": "double"
+          },
+          "older": {
+            "type": "number",
+            "format": "double"
+          },
+          "isCompany": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bpStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "unallocatedPayments": {
+            "type": "number",
+            "format": "double"
+          },
+          "currentBalance": {
+            "type": "number",
+            "format": "double"
+          },
+          "estimatedAverageDaysToPay": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "depositStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "depositChild": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgedBalancePagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AgedBalance"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookingPattern": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childname": {
+            "type": "string",
+            "nullable": true
+          },
+          "childSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "childForename": {
+            "type": "string",
+            "nullable": true
+          },
+          "chRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionPatternID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userdefid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "brk": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "din": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tea": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "term": {
+            "type": "boolean"
+          },
+          "cchID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "schoolID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "timeFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "waiting": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookingPatternPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BookingPattern"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
             "nullable": true
           }
         },
@@ -597,10 +1449,6 @@
             "nullable": true
           },
           "lastInvoiceTotal": {
-            "type": "string",
-            "nullable": true
-          },
-          "currentSession": {
             "type": "string",
             "nullable": true
           },
@@ -1072,6 +1920,691 @@
         },
         "additionalProperties": false
       },
+      "FundedHours": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "childid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "dob": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantStartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantFinishDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "ageAtStartOfGrantPeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "bookedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fundedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "nonFundedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ageOfChild": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FundedHoursPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/FundedHours"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Grant": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "pTerm": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "grantID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "grantDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "to": {
+            "type": "string",
+            "nullable": true
+          },
+          "numChildren": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sessionsBilled": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantBilled": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantTotal": {
+            "type": "string",
+            "nullable": true
+          },
+          "beforeAmount": {
+            "type": "string",
+            "nullable": true
+          },
+          "afterAmount": {
+            "type": "string",
+            "nullable": true
+          },
+          "difference": {
+            "type": "string",
+            "nullable": true
+          },
+          "hoursBilled": {
+            "type": "string",
+            "nullable": true
+          },
+          "hoursTotal": {
+            "type": "string",
+            "nullable": true
+          },
+          "universalHours": {
+            "type": "string",
+            "nullable": true
+          },
+          "extendedHours": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Grant"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantChild": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pGrant": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteOrdinal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "siteAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress3": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress4": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress5": {
+            "type": "string",
+            "nullable": true
+          },
+          "sitePostcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ofstedref": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantOrdinal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "hourlyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sessionRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantPeriodFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "grantPeriodTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "headCountFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "headCountTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childNameOrdinal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "middlename": {
+            "type": "string",
+            "nullable": true
+          },
+          "initials": {
+            "type": "string",
+            "nullable": true
+          },
+          "dob": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "payBand": {
+            "type": "string",
+            "nullable": true
+          },
+          "school": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef3": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef4": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress3": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress4": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress5": {
+            "type": "string",
+            "nullable": true
+          },
+          "childPostcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientType": {
+            "type": "string",
+            "nullable": true
+          },
+          "childStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "childEthnicity": {
+            "type": "string",
+            "nullable": true
+          },
+          "childLanguage": {
+            "type": "string",
+            "nullable": true
+          },
+          "childGender": {
+            "type": "string",
+            "nullable": true
+          },
+          "cgsID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sessionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionOrdinal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "billingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingTypeOrdinal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "billedMins": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "billedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "preGrantSessionCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "grantAmountShown": {
+            "type": "number",
+            "format": "double"
+          },
+          "postGrantSessionCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "difference": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "gpTransactionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpExternalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpHeadCountDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "agemonthsstartgrant": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ageyearssstartgrant": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantChildPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GrantChild"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Nursery": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roomLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "maximumCapacity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "patternNum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeSlotID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeSlot": {
+            "type": "string",
+            "nullable": true
+          },
+          "sun": {
+            "type": "boolean"
+          },
+          "mon": {
+            "type": "boolean"
+          },
+          "tue": {
+            "type": "boolean"
+          },
+          "wed": {
+            "type": "boolean"
+          },
+          "thu": {
+            "type": "boolean"
+          },
+          "fri": {
+            "type": "boolean"
+          },
+          "sat": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NurseryPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Nursery"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "StaffOccupancy": {
         "type": "object",
         "properties": {
@@ -1159,6 +2692,186 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/StaffOccupancy"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeeklyOccupancy": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pRoom": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "pIncludeMarkedOff": {
+            "type": "string",
+            "nullable": true
+          },
+          "weekCommencing": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeSlot": {
+            "type": "string",
+            "nullable": true
+          },
+          "roomName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roomMaxCapacity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sunB": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sunA": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sunW": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "monB": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "monA": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "monW": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tueB": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tueA": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tueW": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wedB": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wedA": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wedW": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "thuB": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "thuA": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "thuW": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "friB": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "friA": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "friW": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "satB": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "satA": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "satW": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeeklyOccupancyPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WeeklyOccupancy"
           },
           "pageNumber": {
             "type": "integer",
