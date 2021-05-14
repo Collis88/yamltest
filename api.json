@@ -109,8 +109,7 @@
             "name": "showZeroBalances",
             "in": "query",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "boolean"
             }
           },
           {
