@@ -242,6 +242,59 @@
         }
       }
     },
+    "/CashSheet": {
+      "get": {
+        "tags": [
+          "CashSheet"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CashSheetPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Child": {
       "get": {
         "tags": [
@@ -1268,6 +1321,137 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/BookingPattern"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CashSheet": {
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string",
+            "nullable": true
+          },
+          "cat_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "cat_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "cat_3": {
+            "type": "string",
+            "nullable": true
+          },
+          "cat_4": {
+            "type": "string",
+            "nullable": true
+          },
+          "cat_5": {
+            "type": "string",
+            "nullable": true
+          },
+          "cat_6": {
+            "type": "string",
+            "nullable": true
+          },
+          "cat_7": {
+            "type": "string",
+            "nullable": true
+          },
+          "apar_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "ext_inv_ref": {
+            "type": "string",
+            "nullable": true
+          },
+          "trans_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "apar_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "due_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "cur_amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "voucher_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "trans_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "payment_type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CashSheetPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CashSheet"
           },
           "pageNumber": {
             "type": "integer",
