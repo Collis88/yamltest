@@ -1212,6 +1212,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
           "nextPage": {
             "type": "string",
             "format": "uri",
@@ -1348,6 +1352,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
           "nextPage": {
             "type": "string",
             "format": "uri",
@@ -1476,6 +1484,10 @@
             "format": "int32"
           },
           "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
             "type": "integer",
             "format": "int32"
           },
@@ -1691,6 +1703,10 @@
             "format": "int32"
           },
           "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
             "type": "integer",
             "format": "int32"
           },
@@ -1927,6 +1943,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
           "nextPage": {
             "type": "string",
             "format": "uri",
@@ -2090,6 +2110,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
           "nextPage": {
             "type": "string",
             "format": "uri",
@@ -2202,6 +2226,10 @@
             "format": "int32"
           },
           "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
             "type": "integer",
             "format": "int32"
           },
@@ -2330,6 +2358,10 @@
             "format": "int32"
           },
           "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
             "type": "integer",
             "format": "int32"
           },
@@ -2651,6 +2683,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
           "nextPage": {
             "type": "string",
             "format": "uri",
@@ -2772,6 +2808,10 @@
             "format": "int32"
           },
           "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
             "type": "integer",
             "format": "int32"
           },
@@ -2899,6 +2939,10 @@
             "format": "int32"
           },
           "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
             "type": "integer",
             "format": "int32"
           },
@@ -3079,6 +3123,10 @@
             "format": "int32"
           },
           "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
             "type": "integer",
             "format": "int32"
           },
