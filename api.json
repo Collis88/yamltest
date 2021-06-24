@@ -2,14 +2,16 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Connect Childcare API",
-    "version": "v1"
+    "description": "Connect Childcare Reporting API ",
+    "version": "1"
   },
   "paths": {
-    "/api/Account/login": {
+    "/api/v1/Account/login": {
       "post": {
         "tags": [
           "Account"
         ],
+        "summary": "Login",
         "requestBody": {
           "content": {
             "application/json": {
@@ -36,11 +38,12 @@
         }
       }
     },
-    "/api/Account/user": {
+    "/api/v1/Account/user": {
       "get": {
         "tags": [
           "Account"
         ],
+        "summary": "User",
         "responses": {
           "200": {
             "description": "Success"
@@ -48,11 +51,12 @@
         }
       }
     },
-    "/api/Account/logout": {
+    "/api/v1/Account/logout": {
       "post": {
         "tags": [
           "Account"
         ],
+        "summary": "Logout",
         "responses": {
           "200": {
             "description": "Success"
@@ -60,11 +64,12 @@
         }
       }
     },
-    "/api/Account/refresh-token": {
+    "/api/v1/Account/refresh-token": {
       "post": {
         "tags": [
           "Account"
         ],
+        "summary": "Refresh Token",
         "requestBody": {
           "content": {
             "application/json": {
@@ -91,78 +96,97 @@
         }
       }
     },
-    "/AgedBalance": {
+    "/v1/AgedBalance": {
       "get": {
         "tags": [
           "AgedBalance"
         ],
+        "summary": "Aged Balance",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "showZeroBalances",
             "in": "query",
+            "description": "include 0 amounts",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include 0 amounts"
             }
           },
           {
             "name": "companyBillPayers",
             "in": "query",
+            "description": "can be set to \"ALL\" or \"YES\" or \"NO\"",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" or \"YES\" or \"NO\"",
               "nullable": true
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "string",
+              "description": "",
               "format": "date-time"
             }
           },
           {
             "name": "includeUnfinalised",
             "in": "query",
+            "description": "include unfinalised bills",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include unfinalised bills"
             }
           },
           {
             "name": "excludeDepositBills",
             "in": "query",
+            "description": "exclude deposited bills",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "exclude deposited bills"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -181,65 +205,80 @@
         }
       }
     },
-    "/BookingPattern": {
+    "/v1/BookingPattern": {
       "get": {
         "tags": [
           "BookingPattern"
         ],
+        "summary": "Booking Pattern",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "childID",
             "in": "query",
+            "description": "can be set to 0 to return all children",
             "schema": {
               "type": "integer",
+              "description": "can be set to 0 to return all children",
               "format": "int32"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "session groups date from",
             "schema": {
               "type": "string",
+              "description": "session groups date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "session groups date to",
             "schema": {
               "type": "string",
+              "description": "session groups date to",
               "format": "date-time"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -258,49 +297,60 @@
         }
       }
     },
-    "/CashSheet": {
+    "/v1/CashSheet": {
       "get": {
         "tags": [
           "CashSheet"
         ],
+        "summary": "Cash Sheet",
         "parameters": [
           {
             "name": "from",
             "in": "query",
+            "description": "date from",
             "schema": {
               "type": "string",
+              "description": "date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "date to",
             "schema": {
               "type": "string",
+              "description": "date to",
               "format": "date-time"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -319,72 +369,88 @@
         }
       }
     },
-    "/Child": {
+    "/v1/Child": {
       "get": {
         "tags": [
           "Child"
         ],
+        "summary": "Child",
+        "description": "return list of children linked billpayers",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "childID",
             "in": "query",
+            "description": "can be set to 0 to return all children",
             "schema": {
               "type": "integer",
+              "description": "can be set to 0 to return all children",
               "format": "int32"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "child start date from",
             "schema": {
               "type": "string",
+              "description": "child start date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "child start date to",
             "schema": {
               "type": "string",
+              "description": "child start date to",
               "format": "date-time"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Returns list of children",
             "content": {
               "application/json": {
                 "schema": {
@@ -396,72 +462,89 @@
         }
       }
     },
-    "/Enquiry": {
+    "/v1/Enquiry": {
       "get": {
         "tags": [
           "Enquiry"
         ],
+        "summary": "Enquiry",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "enquiryID",
             "in": "query",
+            "description": "can be set to 0 to return all enquiries",
             "schema": {
               "type": "integer",
+              "description": "can be set to 0 to return all enquiries",
               "format": "int32"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "enquiry created date from",
             "schema": {
               "type": "string",
+              "description": "enquiry created date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "enquiry created date to",
             "schema": {
               "type": "string",
+              "description": "enquiry created date to",
               "format": "date-time"
             }
           },
           {
             "name": "currentOnly",
             "in": "query",
+            "description": "filter latest record only when set to 1",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "filter latest record only when set to 1"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -480,101 +563,126 @@
         }
       }
     },
-    "/FTE": {
+    "/v1/FTE": {
       "get": {
         "tags": [
           "FTE"
         ],
+        "summary": "FTE",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
           {
             "name": "period",
             "in": "query",
+            "description": "can be set to \"HOURLY\" or \"WEEKLY\" or \"MONTHLY\"",
             "schema": {
               "type": "string",
+              "description": "can be set to \"HOURLY\" or \"WEEKLY\" or \"MONTHLY\"",
               "nullable": true
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "session date from (auto reverts to start of week/month for passed day)",
             "schema": {
               "type": "string",
+              "description": "session date from (auto reverts to start of week/month for passed day)",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "session date to (auto reverts to end of week/month for passed day)",
             "schema": {
               "type": "string",
+              "description": "session date to (auto reverts to end of week/month for passed day)",
               "format": "date-time"
             }
           },
           {
             "name": "includeMarkedOff",
             "in": "query",
+            "description": "include marked of sessions",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include marked of sessions"
             }
           },
           {
             "name": "useExpectedDate",
             "in": "query",
+            "description": "only include sessions before expected child enddate",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "only include sessions before expected child enddate"
             }
           },
           {
             "name": "includeExtraSessions",
             "in": "query",
+            "description": "include extra sessions",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include extra sessions"
             }
           },
           {
             "name": "includeHolidaySessions",
             "in": "query",
+            "description": "include holiday sessions",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include holiday sessions"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -593,106 +701,133 @@
         }
       }
     },
-    "/FundedHours": {
+    "/v1/FundedHours": {
       "get": {
         "tags": [
           "FundedHours"
         ],
+        "summary": "Funded Hours",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "session date from",
             "schema": {
               "type": "string",
+              "description": "session date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "session date to",
             "schema": {
               "type": "string",
+              "description": "session date to",
               "format": "date-time"
             }
           },
           {
             "name": "allAges",
             "in": "query",
+            "description": "show all ages",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "show all ages"
             }
           },
           {
             "name": "under1",
             "in": "query",
+            "description": "include under 1's (only required if allAges is 0)",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include under 1's (only required if allAges is 0)"
             }
           },
           {
             "name": "age1",
             "in": "query",
+            "description": "include age 1 (only required if allAges is 0)",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include age 1 (only required if allAges is 0)"
             }
           },
           {
             "name": "age2",
             "in": "query",
+            "description": "include age 2 (only required if allAges is 0)",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include age 2 (only required if allAges is 0)"
             }
           },
           {
             "name": "age3",
             "in": "query",
+            "description": "include age 3 (only required if allAges is 0)",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include age 3 (only required if allAges is 0)"
             }
           },
           {
             "name": "age4",
             "in": "query",
+            "description": "include age 4 (only required if allAges is 0)",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include age 4 (only required if allAges is 0)"
             }
           },
           {
             "name": "age5",
             "in": "query",
+            "description": "include age 5 (only required if allAges is 0)",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include age 5 (only required if allAges is 0)"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -711,65 +846,70 @@
         }
       }
     },
-    "/Grant": {
+    "/v1/Grant": {
       "get": {
         "tags": [
           "Grant"
         ],
+        "summary": "Grant",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
-            }
-          },
-          {
-            "name": "term",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "grant start date from",
             "schema": {
               "type": "string",
+              "description": "grant start date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "grant start date to",
             "schema": {
               "type": "string",
+              "description": "grant start date to",
               "format": "date-time"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -788,65 +928,80 @@
         }
       }
     },
-    "/Grant/Child": {
+    "/v1/Grant/Child": {
       "get": {
         "tags": [
           "Grant"
         ],
+        "summary": "Grant Child",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "grantDesc",
             "in": "query",
+            "description": "grant description",
             "schema": {
               "type": "string",
+              "description": "grant description",
               "nullable": true
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "grant start date from",
             "schema": {
               "type": "string",
+              "description": "grant start date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "grant start date to",
             "schema": {
               "type": "string",
+              "description": "grant start date to",
               "format": "date-time"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -865,49 +1020,60 @@
         }
       }
     },
-    "/Nursery": {
+    "/v1/Nursery": {
       "get": {
         "tags": [
           "Nursery"
         ],
+        "summary": "Nursery",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -926,49 +1092,60 @@
         }
       }
     },
-    "/StaffOccupancy": {
+    "/v1/StaffOccupancy": {
       "get": {
         "tags": [
           "StaffOccupancy"
         ],
+        "summary": "Staff Occupancy",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "date from",
             "schema": {
               "type": "string",
+              "description": "date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "date to",
             "schema": {
               "type": "string",
+              "description": "date to",
               "format": "date-time"
             }
           },
           {
             "name": "includeMarkedOff",
             "in": "query",
+            "description": "include marked of sessions",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include marked of sessions"
             }
           },
           {
@@ -981,24 +1158,30 @@
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -1017,72 +1200,89 @@
         }
       }
     },
-    "/WeeklyOccupancy": {
+    "/v1/WeeklyOccupancy": {
       "get": {
         "tags": [
           "WeeklyOccupancy"
         ],
+        "summary": "Weekly Occupancy",
         "parameters": [
           {
             "name": "siteName",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
+            "description": "can be set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
+              "description": "can be set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
           {
             "name": "from",
             "in": "query",
+            "description": "date from",
             "schema": {
               "type": "string",
+              "description": "date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "description": "date to",
             "schema": {
               "type": "string",
+              "description": "date to",
               "format": "date-time"
             }
           },
           {
             "name": "includeMarkedOff",
             "in": "query",
+            "description": "include marked of sessions",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include marked of sessions"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
+            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
+              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "customNote",
             "in": "query",
+            "description": "a custom text string that is added to the response",
             "schema": {
               "type": "string",
+              "description": "a custom text string that is added to the response",
               "nullable": true
             }
           }
@@ -1113,13 +1313,16 @@
         "type": "object",
         "properties": {
           "account": {
-            "type": "string"
+            "type": "string",
+            "description": "unique account number"
           },
           "username": {
-            "type": "string"
+            "type": "string",
+            "description": "core user"
           },
           "password": {
-            "type": "string"
+            "type": "string",
+            "description": "core password"
           }
         },
         "additionalProperties": false
@@ -1476,6 +1679,10 @@
       "CashSheet": {
         "type": "object",
         "properties": {
+          "columns": {
+            "type": "string",
+            "nullable": true
+          },
           "account": {
             "type": "string",
             "nullable": true
@@ -2312,11 +2519,6 @@
           "postCode": {
             "type": "string",
             "nullable": true
-          },
-          "ageOfChild": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2388,10 +2590,6 @@
           "siteName": {
             "type": "string",
             "nullable": true
-          },
-          "pTerm": {
-            "type": "integer",
-            "format": "int32"
           },
           "grantID": {
             "type": "integer",
