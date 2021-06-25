@@ -106,10 +106,10 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
@@ -125,10 +125,10 @@
           {
             "name": "companyBillPayers",
             "in": "query",
-            "description": "can be set to \"ALL\" or \"YES\" or \"NO\"",
+            "description": "set to \"ALL\" or \"YES\" or \"NO\"",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" or \"YES\" or \"NO\"",
+              "description": "set to \"ALL\" or \"YES\" or \"NO\"",
               "nullable": true
             }
           },
@@ -154,29 +154,29 @@
           {
             "name": "excludeDepositBills",
             "in": "query",
-            "description": "exclude deposited bills",
+            "description": "exclude deposited bills and payments",
             "schema": {
               "type": "boolean",
-              "description": "exclude deposited bills"
+              "description": "exclude deposited bills and payments"
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -215,20 +215,20 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "childID",
             "in": "query",
-            "description": "can be set to 0 to return all children",
+            "description": "set to 0 to return all children",
             "schema": {
               "type": "integer",
-              "description": "can be set to 0 to return all children",
+              "description": "set to 0 to return all children",
               "format": "int32"
             }
           },
@@ -255,20 +255,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -327,20 +327,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -380,20 +380,20 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "childID",
             "in": "query",
-            "description": "can be set to 0 to return all children",
+            "description": "set to 0 to return all children",
             "schema": {
               "type": "integer",
-              "description": "can be set to 0 to return all children",
+              "description": "set to 0 to return all children",
               "format": "int32"
             }
           },
@@ -420,20 +420,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -472,20 +472,20 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "enquiryID",
             "in": "query",
-            "description": "can be set to 0 to return all enquiries",
+            "description": "set to 0 to return all enquiries",
             "schema": {
               "type": "integer",
-              "description": "can be set to 0 to return all enquiries",
+              "description": "set to 0 to return all enquiries",
               "format": "int32"
             }
           },
@@ -521,20 +521,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -573,30 +573,30 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all rooms",
+            "description": "set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all rooms",
+              "description": "set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
           {
             "name": "period",
             "in": "query",
-            "description": "can be set to \"HOURLY\" or \"WEEKLY\" or \"MONTHLY\"",
+            "description": "set to \"HOURLY\" or \"WEEKLY\" or \"MONTHLY\"",
             "schema": {
               "type": "string",
-              "description": "can be set to \"HOURLY\" or \"WEEKLY\" or \"MONTHLY\"",
+              "description": "set to \"HOURLY\" or \"WEEKLY\" or \"MONTHLY\"",
               "nullable": true
             }
           },
@@ -659,20 +659,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -711,10 +711,10 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
@@ -804,20 +804,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -856,10 +856,10 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
@@ -886,20 +886,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -938,10 +938,10 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
@@ -978,20 +978,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -1030,40 +1030,40 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all rooms",
+            "description": "set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all rooms",
+              "description": "set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -1102,20 +1102,20 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all rooms",
+            "description": "set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all rooms",
+              "description": "set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
@@ -1158,20 +1158,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -1210,20 +1210,20 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all sites (based on user perms)",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
           {
             "name": "room",
             "in": "query",
-            "description": "can be set to \"ALL\" to return all rooms",
+            "description": "set to \"ALL\" to return all rooms",
             "schema": {
               "type": "string",
-              "description": "can be set to \"ALL\" to return all rooms",
+              "description": "set to \"ALL\" to return all rooms",
               "nullable": true
             }
           },
@@ -1259,20 +1259,20 @@
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageSize must also be 0)",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
               "format": "int32"
             }
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
             "schema": {
               "type": "integer",
-              "description": "Can be set to 0 to disable paging (pageNumber must also be 0)",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
               "format": "int32"
             }
           },
@@ -2485,6 +2485,10 @@
             "type": "string",
             "nullable": true
           },
+          "grantID": {
+            "type": "integer",
+            "format": "int32"
+          },
           "grantDescription": {
             "type": "string",
             "nullable": true
@@ -2588,6 +2592,10 @@
             "format": "int32"
           },
           "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "term": {
             "type": "string",
             "nullable": true
           },
@@ -2711,6 +2719,10 @@
       "GrantChild": {
         "type": "object",
         "properties": {
+          "cgsID": {
+            "type": "integer",
+            "format": "int32"
+          },
           "pSite": {
             "type": "string",
             "nullable": true
@@ -2892,10 +2904,6 @@
           "childGender": {
             "type": "string",
             "nullable": true
-          },
-          "cgsID": {
-            "type": "integer",
-            "format": "int32"
           },
           "sessionDate": {
             "type": "string",
