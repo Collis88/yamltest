@@ -1210,10 +1210,10 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "description": "must be a unique site name",
             "schema": {
               "type": "string",
-              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "description": "must be a unique site name",
               "nullable": true
             }
           },
