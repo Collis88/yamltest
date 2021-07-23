@@ -1151,8 +1151,10 @@
           {
             "name": "roomStaff",
             "in": "query",
+            "description": "include room staff",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "include room staff"
             }
           },
           {
