@@ -51,6 +51,20 @@
         }
       }
     },
+    "/api/v1/Account/about": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "About",
+        "description": "API Notes - Server updates performed most friday's, requests after 12:00pm BST may fail",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/v1/Account/logout": {
       "post": {
         "tags": [
@@ -198,6 +212,108 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AgedBalancePagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Booking": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "summary": "Booking",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "room",
+            "in": "query",
+            "description": "set to \"ALL\" to return all rooms",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all rooms",
+              "nullable": true
+            }
+          },
+          {
+            "name": "childID",
+            "in": "query",
+            "description": "set to 0 to return all children",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to return all children",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "session groups date from",
+            "schema": {
+              "type": "string",
+              "description": "session groups date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "session groups date to",
+            "schema": {
+              "type": "string",
+              "description": "session groups date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingPagedResponse"
                 }
               }
             }
@@ -1534,6 +1650,177 @@
         },
         "additionalProperties": false
       },
+      "Booking": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "bookingID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sessionID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roomID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "childForename": {
+            "type": "string",
+            "nullable": true
+          },
+          "childname": {
+            "type": "string",
+            "nullable": true
+          },
+          "attended": {
+            "type": "boolean"
+          },
+          "markedOff": {
+            "type": "boolean"
+          },
+          "markOffDescr": {
+            "type": "string",
+            "nullable": true
+          },
+          "brk": {
+            "type": "boolean"
+          },
+          "din": {
+            "type": "boolean"
+          },
+          "tea": {
+            "type": "boolean"
+          },
+          "isCurrent": {
+            "type": "boolean"
+          },
+          "holidayID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "schoolID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isTTO": {
+            "type": "boolean"
+          },
+          "termID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cchID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bookingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "futureBooking": {
+            "type": "boolean"
+          },
+          "extractDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookingPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Booking"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "BookingPattern": {
         "type": "object",
         "properties": {
@@ -1582,16 +1869,13 @@
             "format": "int32"
           },
           "brk": {
-            "type": "integer",
-            "format": "int32"
+            "type": "boolean"
           },
           "din": {
-            "type": "integer",
-            "format": "int32"
+            "type": "boolean"
           },
           "tea": {
-            "type": "integer",
-            "format": "int32"
+            "type": "boolean"
           },
           "term": {
             "type": "boolean"
@@ -2614,51 +2898,6 @@
             "nullable": true
           },
           "to": {
-            "type": "string",
-            "nullable": true
-          },
-          "numChildren": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "sessionsBilled": {
-            "type": "string",
-            "nullable": true
-          },
-          "grantBilled": {
-            "type": "string",
-            "nullable": true
-          },
-          "grantTotal": {
-            "type": "string",
-            "nullable": true
-          },
-          "beforeAmount": {
-            "type": "string",
-            "nullable": true
-          },
-          "afterAmount": {
-            "type": "string",
-            "nullable": true
-          },
-          "difference": {
-            "type": "string",
-            "nullable": true
-          },
-          "hoursBilled": {
-            "type": "string",
-            "nullable": true
-          },
-          "hoursTotal": {
-            "type": "string",
-            "nullable": true
-          },
-          "universalHours": {
-            "type": "string",
-            "nullable": true
-          },
-          "extendedHours": {
             "type": "string",
             "nullable": true
           }
