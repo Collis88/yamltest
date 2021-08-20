@@ -259,20 +259,20 @@
           {
             "name": "from",
             "in": "query",
-            "description": "session groups date from",
+            "description": "session date from",
             "schema": {
               "type": "string",
-              "description": "session groups date from",
+              "description": "session date from",
               "format": "date-time"
             }
           },
           {
             "name": "to",
             "in": "query",
-            "description": "session groups date to",
+            "description": "session date to",
             "schema": {
               "type": "string",
-              "description": "session groups date to",
+              "description": "session date to",
               "format": "date-time"
             }
           },
@@ -419,6 +419,7 @@
           "CashSheet"
         ],
         "summary": "Cash Sheet",
+        "description": "Bespoke report only accessible from certain account(s)",
         "parameters": [
           {
             "name": "from",
@@ -1142,6 +1143,7 @@
           "Nursery"
         ],
         "summary": "Nursery",
+        "description": "Nursery/Site information",
         "parameters": [
           {
             "name": "siteName",
