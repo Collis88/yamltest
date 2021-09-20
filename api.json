@@ -1469,22 +1469,27 @@
             "format": "date-time"
           },
           "pShowZeroBalances": {
-            "type": "string",
-            "nullable": true
+            "type": "boolean"
           },
           "pCompanyBillpayers": {
             "type": "string",
             "nullable": true
           },
-          "pUnfinalised": {
-            "type": "string",
-            "nullable": true
+          "pIncludeUnfinalised": {
+            "type": "boolean"
           },
           "pExcludeDeposits": {
+            "type": "boolean"
+          },
+          "site": {
             "type": "string",
             "nullable": true
           },
-          "site": {
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bpRef": {
             "type": "string",
             "nullable": true
           },
@@ -1659,6 +1664,22 @@
             "type": "string",
             "nullable": true
           },
+          "pRoom": {
+            "type": "string",
+            "nullable": true
+          },
+          "pChildID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
           "bookingID": {
             "type": "integer",
             "format": "int64"
@@ -1830,9 +1851,25 @@
             "type": "string",
             "nullable": true
           },
+          "pChildID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
           "siteName": {
             "type": "string",
             "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
           },
           "childID": {
             "type": "integer",
@@ -2114,6 +2151,18 @@
             "type": "string",
             "nullable": true
           },
+          "pChildID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
           "siteName": {
             "type": "string",
             "nullable": true
@@ -2336,6 +2385,21 @@
           "pSite": {
             "type": "string",
             "nullable": true
+          },
+          "pEnquiryID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pCurrentOnly": {
+            "type": "boolean"
           },
           "siteName": {
             "type": "string",
@@ -2582,9 +2646,41 @@
             "type": "string",
             "nullable": true
           },
-          "period": {
+          "pRoom": {
             "type": "string",
             "nullable": true
+          },
+          "pPeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pIncludeMarkedOff": {
+            "type": "boolean"
+          },
+          "pUseExpectedDate": {
+            "type": "boolean"
+          },
+          "pIncludeExtraSessions": {
+            "type": "boolean"
+          },
+          "pIncludeHolidaySessions": {
+            "type": "boolean"
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomID": {
+            "type": "integer",
+            "format": "int32"
           },
           "siteGroup": {
             "type": "string",
@@ -2753,9 +2849,42 @@
             "type": "string",
             "nullable": true
           },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pAllAges": {
+            "type": "boolean"
+          },
+          "pUnder1": {
+            "type": "boolean"
+          },
+          "pAge1": {
+            "type": "boolean"
+          },
+          "pAge2": {
+            "type": "boolean"
+          },
+          "pAge3": {
+            "type": "boolean"
+          },
+          "pAge4": {
+            "type": "boolean"
+          },
+          "pAge5": {
+            "type": "boolean"
+          },
           "siteName": {
             "type": "string",
             "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
           },
           "childid": {
             "type": "integer",
@@ -2875,6 +3004,14 @@
             "type": "string",
             "nullable": true
           },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
           "siteID": {
             "type": "integer",
             "format": "int32"
@@ -2973,6 +3110,14 @@
           "pGrant": {
             "type": "string",
             "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
           },
           "siteName": {
             "type": "string",
@@ -3292,6 +3437,10 @@
             "type": "string",
             "nullable": true
           },
+          "pRoom": {
+            "type": "string",
+            "nullable": true
+          },
           "siteName": {
             "type": "string",
             "nullable": true
@@ -3360,6 +3509,10 @@
           },
           "sat": {
             "type": "boolean"
+          },
+          "externalReference": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3423,6 +3576,27 @@
           "pSite": {
             "type": "string",
             "nullable": true
+          },
+          "pRoom": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pIncludeMarkedOff": {
+            "type": "boolean"
+          },
+          "pActualTimes": {
+            "type": "boolean"
+          },
+          "pRoomStaff": {
+            "type": "boolean"
           },
           "siteGroupName": {
             "type": "string",
@@ -3565,15 +3739,16 @@
           },
           "pDtFrom": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "pDtTo": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "pIncludeMarkedOff": {
-            "type": "string",
-            "nullable": true
+            "type": "boolean"
           },
           "weekCommencing": {
             "type": "string",
