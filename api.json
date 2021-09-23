@@ -1755,9 +1755,6 @@
           "tea": {
             "type": "boolean"
           },
-          "isCurrent": {
-            "type": "boolean"
-          },
           "holidayID": {
             "type": "integer",
             "format": "int32"
