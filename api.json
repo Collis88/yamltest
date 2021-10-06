@@ -2244,6 +2244,10 @@
             "type": "string",
             "nullable": true
           },
+          "bpCustomRef2": {
+            "type": "string",
+            "nullable": true
+          },
           "bpSurname": {
             "type": "string",
             "nullable": true
