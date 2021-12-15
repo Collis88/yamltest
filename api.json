@@ -1892,6 +1892,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "sessionMealsID": {
+            "type": "integer",
+            "format": "int32"
+          },
           "sessionDate": {
             "type": "string",
             "nullable": true
@@ -2082,6 +2086,10 @@
             "nullable": true
           },
           "payment_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoice_number": {
             "type": "string",
             "nullable": true
           }
@@ -2407,6 +2415,10 @@
             "nullable": true
           },
           "enquiryID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "progressID": {
             "type": "integer",
             "format": "int32"
           },
