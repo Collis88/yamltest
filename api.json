@@ -2092,6 +2092,10 @@
           "invoice_number": {
             "type": "string",
             "nullable": true
+          },
+          "core_Ref": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
