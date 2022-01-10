@@ -1896,6 +1896,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "sgaID": {
+            "type": "integer",
+            "format": "int32"
+          },
           "sessionDate": {
             "type": "string",
             "nullable": true
