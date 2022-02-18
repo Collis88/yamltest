@@ -1684,6 +1684,14 @@
             "type": "integer",
             "format": "int64"
           },
+          "sessionGroupID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionGroupName": {
+            "type": "string",
+            "nullable": true
+          },
           "sessionID": {
             "type": "integer",
             "format": "int32"
@@ -1904,6 +1912,19 @@
             "type": "string",
             "nullable": true
           },
+          "sessionGroupID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionGroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "sessionName": {
             "type": "string",
             "nullable": true
@@ -1932,11 +1953,6 @@
           "schoolID": {
             "type": "integer",
             "format": "int32"
-          },
-          "sessionID": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           },
           "timeFrom": {
             "type": "string",
@@ -2179,6 +2195,10 @@
           "siteName": {
             "type": "string",
             "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
           },
           "childID": {
             "type": "integer",
@@ -3144,6 +3164,10 @@
             "type": "string",
             "nullable": true
           },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
           "siteOrdinal": {
             "type": "integer",
             "format": "int64"
@@ -3179,6 +3203,10 @@
           "grantDescription": {
             "type": "string",
             "nullable": true
+          },
+          "grantID": {
+            "type": "integer",
+            "format": "int32"
           },
           "grantOrdinal": {
             "type": "integer",
@@ -3317,6 +3345,18 @@
           "sessionDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "sessionGroupID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionGroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionID": {
+            "type": "integer",
+            "format": "int32"
           },
           "sessionName": {
             "type": "string",
