@@ -3434,6 +3434,10 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "billKeyRef": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
