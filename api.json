@@ -1942,8 +1942,13 @@
           "tea": {
             "type": "boolean"
           },
-          "term": {
-            "type": "boolean"
+          "term_code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "term_desc": {
+            "type": "string",
+            "nullable": true
           },
           "cchID": {
             "type": "integer",
