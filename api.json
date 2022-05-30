@@ -219,6 +219,99 @@
         }
       }
     },
+    "/v1/BillPayerTransaction": {
+      "get": {
+        "tags": [
+          "BillPayerTransaction"
+        ],
+        "summary": "Bill Payer Transaction",
+        "description": "return list of transactions linked billpayers",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "bpID",
+            "in": "query",
+            "description": "set to 0 to return all billpayers",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to return all billpayers",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "transaction start date from",
+            "schema": {
+              "type": "string",
+              "description": "transaction start date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "transaction start date to",
+            "schema": {
+              "type": "string",
+              "description": "transaction start date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of billpayers transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillPayerTransactionPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/Booking": {
       "get": {
         "tags": [
@@ -1616,7 +1709,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -1634,7 +1727,151 @@
           },
           "totalRecords": {
             "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
             "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BillPayerTransaction": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pBpid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bpID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "salutation": {
+            "type": "string",
+            "nullable": true
+          },
+          "bp_ref": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "transactionAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "transactionReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionConfirmedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "transactionDate_month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transactionDate_year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tID": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BillPayerTransactionPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BillPayerTransaction"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -1792,6 +2029,30 @@
           "extractDate": {
             "type": "string",
             "nullable": true
+          },
+          "zzsaID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "chargeBand": {
+            "type": "string",
+            "nullable": true
+          },
+          "fte": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sessionDate_month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sessionDate_year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1808,7 +2069,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -1826,7 +2087,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -1986,7 +2247,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -2004,7 +2265,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -2137,7 +2398,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -2155,7 +2416,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -2364,6 +2625,33 @@
           "otherRefs": {
             "type": "string",
             "nullable": true
+          },
+          "preferredPaymentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "leaveReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate_month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "startDate_year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2380,7 +2668,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -2398,7 +2686,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -2628,6 +2916,16 @@
           "additionalInfo": {
             "type": "string",
             "nullable": true
+          },
+          "progDate_month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "progDate_year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2644,7 +2942,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -2662,7 +2960,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -2847,7 +3145,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -2865,7 +3163,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -3002,7 +3300,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -3020,7 +3318,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -3101,7 +3399,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -3119,7 +3417,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -3459,7 +3757,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -3477,7 +3775,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -3599,7 +3897,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -3617,7 +3915,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -3755,7 +4053,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -3773,7 +4071,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
@@ -3944,7 +4242,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "firstPage": {
             "type": "string",
@@ -3962,7 +4260,7 @@
           },
           "totalRecords": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "paginationRecords": {
             "type": "integer",
