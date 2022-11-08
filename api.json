@@ -722,10 +722,10 @@
           {
             "name": "currentOnly",
             "in": "query",
-            "description": "filter latest record only when set to 1",
+            "description": "filter latest record only when set to true",
             "schema": {
               "type": "boolean",
-              "description": "filter latest record only when set to 1"
+              "description": "filter latest record only when set to true"
             }
           },
           {
@@ -1296,6 +1296,211 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/NurseryPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/SiteRatio": {
+      "get": {
+        "tags": [
+          "SiteRatio"
+        ],
+        "summary": "Site Ratio",
+        "description": "Site Ratio information",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteRatioPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/SiteTotals": {
+      "get": {
+        "tags": [
+          "SiteTotals"
+        ],
+        "summary": "Site Totals",
+        "description": "Bespoke report only accessible from certain account(s)",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SiteTotalsPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Staff": {
+      "get": {
+        "tags": [
+          "Staff"
+        ],
+        "summary": "Staff",
+        "description": "Staff/Site information",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffPagedResponse"
                 }
               }
             }
@@ -3890,6 +4095,426 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/Nursery"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteStaffProfileRatios": {
+        "type": "object",
+        "properties": {
+          "sprID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "monthFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "monthTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratio": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Site_RatioType": {
+        "type": "object",
+        "properties": {
+          "ratioID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ratioName": {
+            "type": "string",
+            "nullable": true
+          },
+          "staffProfileRatios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SiteStaffProfileRatios"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteRatio": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ratios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Site_RatioType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteRatioPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SiteRatio"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteTotals": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalStaff": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalChildren": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSENDChildren": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteTotalsPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SiteTotals"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Staff_Room": {
+        "type": "object",
+        "properties": {
+          "roomID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Staff_Keyworker": {
+        "type": "object",
+        "properties": {
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Staff_Qualification": {
+        "type": "object",
+        "properties": {
+          "qualificationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "qualificationValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Staff_Ratio": {
+        "type": "object",
+        "properties": {
+          "ratioName": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "to": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Staff": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "staffID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "dob": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "address4": {
+            "type": "string",
+            "nullable": true
+          },
+          "address5": {
+            "type": "string",
+            "nullable": true
+          },
+          "rooms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Staff_Room"
+            },
+            "nullable": true
+          },
+          "keyworker": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Staff_Keyworker"
+            },
+            "nullable": true
+          },
+          "qualifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Staff_Qualification"
+            },
+            "nullable": true
+          },
+          "ratios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Staff_Ratio"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StaffPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Staff"
           },
           "pageNumber": {
             "type": "integer",
