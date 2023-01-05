@@ -219,6 +219,115 @@
         }
       }
     },
+    "/v1/AgedBalanceWithCredit": {
+      "get": {
+        "tags": [
+          "AgedBalanceWithCredit"
+        ],
+        "summary": "Aged Balance",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "showZeroBalances",
+            "in": "query",
+            "description": "include 0 amounts",
+            "schema": {
+              "type": "boolean",
+              "description": "include 0 amounts"
+            }
+          },
+          {
+            "name": "companyBillPayers",
+            "in": "query",
+            "description": "set to \"ALL\" or \"YES\" or \"NO\"",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" or \"YES\" or \"NO\"",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "includeUnfinalised",
+            "in": "query",
+            "description": "include unfinalised bills",
+            "schema": {
+              "type": "boolean",
+              "description": "include unfinalised bills"
+            }
+          },
+          {
+            "name": "excludeDepositBills",
+            "in": "query",
+            "description": "exclude deposited bills and payments",
+            "schema": {
+              "type": "boolean",
+              "description": "exclude deposited bills and payments"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgedBalanceWithCreditPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/BillPayerTransaction": {
       "get": {
         "tags": [
@@ -1907,6 +2016,206 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/AgedBalance"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgedBalanceWithCredit": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pShowZeroBalances": {
+            "type": "boolean"
+          },
+          "pCompanyBillpayers": {
+            "type": "string",
+            "nullable": true
+          },
+          "pIncludeUnfinalised": {
+            "type": "boolean"
+          },
+          "pExcludeDeposits": {
+            "type": "boolean"
+          },
+          "site": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bpRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingSalutation": {
+            "type": "string",
+            "nullable": true
+          },
+          "telhome": {
+            "type": "string",
+            "nullable": true
+          },
+          "telmob": {
+            "type": "string",
+            "nullable": true
+          },
+          "telwork": {
+            "type": "string",
+            "nullable": true
+          },
+          "billpayer": {
+            "type": "string",
+            "nullable": true
+          },
+          "reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "billPayerID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "children": {
+            "type": "string",
+            "nullable": true
+          },
+          "balance": {
+            "type": "number",
+            "format": "double"
+          },
+          "periodKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "period2Heading": {
+            "type": "string",
+            "nullable": true
+          },
+          "period3Heading": {
+            "type": "string",
+            "nullable": true
+          },
+          "period4Heading": {
+            "type": "string",
+            "nullable": true
+          },
+          "current": {
+            "type": "number",
+            "format": "double"
+          },
+          "period2": {
+            "type": "number",
+            "format": "double"
+          },
+          "period3": {
+            "type": "number",
+            "format": "double"
+          },
+          "period4": {
+            "type": "number",
+            "format": "double"
+          },
+          "older": {
+            "type": "number",
+            "format": "double"
+          },
+          "isCompany": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bpStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "unallocatedPayments": {
+            "type": "number",
+            "format": "double"
+          },
+          "currentBalance": {
+            "type": "number",
+            "format": "double"
+          },
+          "estimatedAverageDaysToPay": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "depositStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "depositChild": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgedBalanceWithCreditPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AgedBalanceWithCredit"
           },
           "pageNumber": {
             "type": "integer",
