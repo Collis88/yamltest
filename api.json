@@ -224,7 +224,7 @@
         "tags": [
           "AgedBalanceWithCredit"
         ],
-        "summary": "Aged Balance",
+        "summary": "Aged Balance - With Credit",
         "parameters": [
           {
             "name": "siteName",
