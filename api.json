@@ -328,6 +328,68 @@
         }
       }
     },
+    "/v1/BillPayerInfo": {
+      "get": {
+        "tags": [
+          "BillPayerInfo"
+        ],
+        "summary": "BillPayerInfo",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillPayerInfoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/BillPayerTransaction": {
       "get": {
         "tags": [
@@ -1339,6 +1401,88 @@
         }
       }
     },
+    "/v1/InvoiceDetail": {
+      "get": {
+        "tags": [
+          "InvoiceDetail"
+        ],
+        "summary": "InvoiceDetail",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "session date from",
+            "schema": {
+              "type": "string",
+              "description": "session date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "session date to",
+            "schema": {
+              "type": "string",
+              "description": "session date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvoiceDetailPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/Nursery": {
       "get": {
         "tags": [
@@ -2216,6 +2360,158 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/AgedBalanceWithCredit"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BillPayerInfo": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "billpayerID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "salutation": {
+            "type": "string",
+            "nullable": true
+          },
+          "telHome": {
+            "type": "string",
+            "nullable": true
+          },
+          "telWork": {
+            "type": "string",
+            "nullable": true
+          },
+          "telMob": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "address4": {
+            "type": "string",
+            "nullable": true
+          },
+          "address5": {
+            "type": "string",
+            "nullable": true
+          },
+          "postcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "preferredPaymentFrequency": {
+            "type": "string",
+            "nullable": true
+          },
+          "preferredPaymentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ddReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "childIds": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxRows": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BillPayerInfoPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BillPayerInfo"
           },
           "pageNumber": {
             "type": "integer",
@@ -4264,6 +4560,226 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/GrantChild"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceDetail": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "billingSiteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "billingSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "billPayerID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bpRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpForename": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpPrefix": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpSalutation": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpAddress3": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpAddress4": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpAddress5": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpPostcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "billNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "invoiceNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "invoiceDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "itemDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "itemSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "transaction_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "string",
+            "nullable": true
+          },
+          "ttype_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itemID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "childForename": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientType": {
+            "type": "string",
+            "nullable": true
+          },
+          "unRoundedAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxRows": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceDetailPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/InvoiceDetail"
           },
           "pageNumber": {
             "type": "integer",
