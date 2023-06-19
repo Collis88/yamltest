@@ -346,6 +346,14 @@
             }
           },
           {
+            "name": "billPayerID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
             "name": "pageNumber",
             "in": "query",
             "description": "set to 0 to disable paging (pageSize must also be 0)",
@@ -2408,12 +2416,30 @@
         },
         "additionalProperties": false
       },
+      "BillPayerInfo_Comms": {
+        "type": "object",
+        "properties": {
+          "commInfo": {
+            "type": "string",
+            "nullable": true
+          },
+          "sentDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "BillPayerInfo": {
         "type": "object",
         "properties": {
           "pSite": {
             "type": "string",
             "nullable": true
+          },
+          "pBillpayerID": {
+            "type": "integer",
+            "format": "int64"
           },
           "billpayerID": {
             "type": "integer",
@@ -2497,6 +2523,17 @@
           },
           "childIds": {
             "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "communications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BillPayerInfo_Comms"
+            },
             "nullable": true
           },
           "maxRows": {
