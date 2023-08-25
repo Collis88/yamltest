@@ -4948,6 +4948,26 @@
           "externalReference": {
             "type": "string",
             "nullable": true
+          },
+          "siteCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "departmentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentInformationNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceNotes": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
