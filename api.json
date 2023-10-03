@@ -952,6 +952,97 @@
         }
       }
     },
+    "/v1/FinanceBills": {
+      "get": {
+        "tags": [
+          "FinanceBills"
+        ],
+        "summary": "FinanceBills",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "bill date from",
+            "schema": {
+              "type": "string",
+              "description": "bill date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "bill date to",
+            "schema": {
+              "type": "string",
+              "description": "bill date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "confirmed",
+            "in": "query",
+            "description": "confirmed bills only",
+            "schema": {
+              "type": "boolean",
+              "description": "confirmed bills only"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinanceBillsPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/FTE": {
       "get": {
         "tags": [
@@ -3782,6 +3873,194 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/Enquiry"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinanceBills": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pConfirmed": {
+            "type": "boolean"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "billsId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "billpayerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "invoiceNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "billDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "confirmedDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "billReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "billPayer": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastPaymentDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastPaymentAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalBalance": {
+            "type": "number",
+            "format": "double"
+          },
+          "amountOwed": {
+            "type": "number",
+            "format": "double"
+          },
+          "current": {
+            "type": "number",
+            "format": "double"
+          },
+          "_30_60Days": {
+            "type": "number",
+            "format": "double"
+          },
+          "_60_90Days": {
+            "type": "number",
+            "format": "double"
+          },
+          "_90_120Days": {
+            "type": "number",
+            "format": "double"
+          },
+          "older": {
+            "type": "number",
+            "format": "double"
+          },
+          "finalised": {
+            "type": "boolean"
+          },
+          "ddReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalWithCredits": {
+            "type": "number",
+            "format": "double"
+          },
+          "issueDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "formattedTotalBalance": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxRows": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinanceBillsPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/FinanceBills"
           },
           "pageNumber": {
             "type": "integer",
