@@ -1500,6 +1500,98 @@
         }
       }
     },
+    "/v1/Grant/ByMonth": {
+      "get": {
+        "tags": [
+          "Grant"
+        ],
+        "summary": "Grant By Month",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "grantDesc",
+            "in": "query",
+            "description": "grant description",
+            "schema": {
+              "type": "string",
+              "description": "grant description",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "include children attending from date",
+            "schema": {
+              "type": "string",
+              "description": "include children attending from date",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "include children attending to date",
+            "schema": {
+              "type": "string",
+              "description": "include children attending to date",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantByMonthPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/InvoiceDetail": {
       "get": {
         "tags": [
@@ -4876,6 +4968,202 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/GrantChild"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantByMonth": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pGrant": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "siteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "initials": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "grantDescr": {
+            "type": "string",
+            "nullable": true
+          },
+          "billedMins": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "billedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantperSessionorHour": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "monthText": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearText": {
+            "type": "string",
+            "nullable": true
+          },
+          "monthNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "stretchedGrantHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "stretchedGrantAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "gpTransactionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpExternalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef3": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef4": {
+            "type": "string",
+            "nullable": true
+          },
+          "universalHrs": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "extendedHrs": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxRows": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantByMonthPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GrantByMonth"
           },
           "pageNumber": {
             "type": "integer",
