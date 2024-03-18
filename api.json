@@ -2072,10 +2072,10 @@
           {
             "name": "siteName",
             "in": "query",
-            "description": "must be a unique site name",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
             "schema": {
               "type": "string",
-              "description": "must be a unique site name",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
               "nullable": true
             }
           },
