@@ -3,7 +3,7 @@
   "info": {
     "title": "Connect Childcare API",
     "description": "Connect Childcare Reporting API ",
-    "version": "1"
+    "version": "1.0.33.0"
   },
   "paths": {
     "/api/v1/Account/login": {
@@ -586,6 +586,108 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BookingPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/BookingFundingBilled": {
+      "get": {
+        "tags": [
+          "BookingFundingBilled"
+        ],
+        "summary": "Booking",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "room",
+            "in": "query",
+            "description": "set to \"ALL\" to return all rooms",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all rooms",
+              "nullable": true
+            }
+          },
+          {
+            "name": "childID",
+            "in": "query",
+            "description": "set to 0 to return all children",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to return all children",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "session date from",
+            "schema": {
+              "type": "string",
+              "description": "session date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "session date to",
+            "schema": {
+              "type": "string",
+              "description": "session date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingFundingBilledPagedResponse"
                 }
               }
             }
@@ -1500,6 +1602,98 @@
         }
       }
     },
+    "/v1/Grant/ChildByDay": {
+      "get": {
+        "tags": [
+          "Grant"
+        ],
+        "summary": "Grant Child By Day",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "grantDesc",
+            "in": "query",
+            "description": "grant description",
+            "schema": {
+              "type": "string",
+              "description": "grant description",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "grant start date from",
+            "schema": {
+              "type": "string",
+              "description": "grant start date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "grant start date to",
+            "schema": {
+              "type": "string",
+              "description": "grant start date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantChildByDayPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/Grant/ByMonth": {
       "get": {
         "tags": [
@@ -1585,6 +1779,107 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GrantByMonthPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Grant/ByMonthV2": {
+      "get": {
+        "tags": [
+          "Grant"
+        ],
+        "summary": "Grant By MonthV2",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "grantDesc",
+            "in": "query",
+            "description": "grant description",
+            "schema": {
+              "type": "string",
+              "description": "grant description",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "include children attending from date",
+            "schema": {
+              "type": "string",
+              "description": "include children attending from date",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "include children attending to date",
+            "schema": {
+              "type": "string",
+              "description": "include children attending to date",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "showTotals",
+            "in": "query",
+            "description": "false = Show totals, true = Show allowance bands",
+            "schema": {
+              "type": "boolean",
+              "description": "false = Show totals, true = Show allowance bands"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantByMonthV2PagedResponse"
                 }
               }
             }
@@ -1740,6 +2035,108 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/NurseryPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/SessionsBookedHours": {
+      "get": {
+        "tags": [
+          "SessionsBookedHours"
+        ],
+        "summary": "Sessions Booked Hours",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "room",
+            "in": "query",
+            "description": "set to \"ALL\" to return all rooms",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all rooms",
+              "nullable": true
+            }
+          },
+          {
+            "name": "childID",
+            "in": "query",
+            "description": "set to 0 to return all children",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to return all children",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "session date from",
+            "schema": {
+              "type": "string",
+              "description": "session date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "session date to",
+            "schema": {
+              "type": "string",
+              "description": "session date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionsBookedHoursPagedResponse"
                 }
               }
             }
@@ -2055,6 +2452,107 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StaffOccupancyPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/TimeslotSessionsBooked": {
+      "get": {
+        "tags": [
+          "TimeslotSessionsBooked"
+        ],
+        "summary": "Timeslot Sessions Booked",
+        "parameters": [
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "set to \"ALL\" to return all sites (based on user perms)",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all sites (based on user perms)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "room",
+            "in": "query",
+            "description": "set to \"ALL\" to return all rooms",
+            "schema": {
+              "type": "string",
+              "description": "set to \"ALL\" to return all rooms",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "date from",
+            "schema": {
+              "type": "string",
+              "description": "date from",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "date to",
+            "schema": {
+              "type": "string",
+              "description": "date to",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "includeMarkedOff",
+            "in": "query",
+            "description": "include marked of sessions",
+            "schema": {
+              "type": "boolean",
+              "description": "include marked of sessions"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageSize must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageSize must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "set to 0 to disable paging (pageNumber must also be 0)",
+            "schema": {
+              "type": "integer",
+              "description": "set to 0 to disable paging (pageNumber must also be 0)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "customNote",
+            "in": "query",
+            "description": "a custom text string that is added to the response",
+            "schema": {
+              "type": "string",
+              "description": "a custom text string that is added to the response",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeeklyOccupancyPagedResponse"
                 }
               }
             }
@@ -3092,6 +3590,242 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/Booking"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookingFundingBilled": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pRoom": {
+            "type": "string",
+            "nullable": true
+          },
+          "pChildID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bookingID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sessionGroupID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionGroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sessionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roomID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roomName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "childForename": {
+            "type": "string",
+            "nullable": true
+          },
+          "childname": {
+            "type": "string",
+            "nullable": true
+          },
+          "attended": {
+            "type": "boolean"
+          },
+          "markedOff": {
+            "type": "boolean"
+          },
+          "markOffDescr": {
+            "type": "string",
+            "nullable": true
+          },
+          "brk": {
+            "type": "boolean"
+          },
+          "din": {
+            "type": "boolean"
+          },
+          "tea": {
+            "type": "boolean"
+          },
+          "holidayID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "schoolID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isTTO": {
+            "type": "boolean"
+          },
+          "termID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cchID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bookingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "futureBooking": {
+            "type": "boolean"
+          },
+          "extractDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "zzsaID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "chargeBand": {
+            "type": "string",
+            "nullable": true
+          },
+          "fte": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sessionDate_month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sessionDate_year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isFunded": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fundingDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "ageBandDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "fundingAllocationMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookingFundingBilledPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BookingFundingBilled"
           },
           "pageNumber": {
             "type": "integer",
@@ -5016,6 +5750,330 @@
         },
         "additionalProperties": false
       },
+      "GrantChildByDay": {
+        "type": "object",
+        "properties": {
+          "cgsID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pGrant": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteOrdinal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "siteAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress3": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress4": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteAddress5": {
+            "type": "string",
+            "nullable": true
+          },
+          "sitePostcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ofstedref": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "grantID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "grantOrdinal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "hourlyRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sessionRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantPeriodFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "grantPeriodTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "headCountFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "headCountTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "childNameOrdinal": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "middlename": {
+            "type": "string",
+            "nullable": true
+          },
+          "initials": {
+            "type": "string",
+            "nullable": true
+          },
+          "dob": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "payBand": {
+            "type": "string",
+            "nullable": true
+          },
+          "school": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef3": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef4": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress3": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress4": {
+            "type": "string",
+            "nullable": true
+          },
+          "childAddress5": {
+            "type": "string",
+            "nullable": true
+          },
+          "childPostcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientType": {
+            "type": "string",
+            "nullable": true
+          },
+          "childStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "childEthnicity": {
+            "type": "string",
+            "nullable": true
+          },
+          "childLanguage": {
+            "type": "string",
+            "nullable": true
+          },
+          "childGender": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "billedMins": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "billedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "preGrantSessionCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "grantAmountShown": {
+            "type": "number",
+            "format": "double"
+          },
+          "postGrantSessionCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "difference": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "gpTransactionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpExternalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpHeadCountDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "agemonthsstartgrant": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ageyearssstartgrant": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantChildByDayPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GrantChildByDay"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "GrantByMonth": {
         "type": "object",
         "properties": {
@@ -5164,6 +6222,197 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/GrantByMonth"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantByMonthV2": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pGrant": {
+            "type": "string",
+            "nullable": true
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "sites": {
+            "type": "string",
+            "nullable": true
+          },
+          "childID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "forename": {
+            "type": "string",
+            "nullable": true
+          },
+          "initials": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "grantDescr": {
+            "type": "string",
+            "nullable": true
+          },
+          "billedMins": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "billedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantperSessionorHour": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "monthText": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearText": {
+            "type": "string",
+            "nullable": true
+          },
+          "monthNum": {
+            "type": "string",
+            "nullable": true
+          },
+          "stretchedGrantHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "stretchedGrantAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grantAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "gpTransactionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpExternalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef3": {
+            "type": "string",
+            "nullable": true
+          },
+          "addRef4": {
+            "type": "string",
+            "nullable": true
+          },
+          "hrs": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "allowanceBand": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxRows": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrantByMonthV2PagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GrantByMonthV2"
           },
           "pageNumber": {
             "type": "integer",
@@ -5544,6 +6793,110 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/Nursery"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "firstPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "lastPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paginationRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "customNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionsBookedHours": {
+        "type": "object",
+        "properties": {
+          "pSite": {
+            "type": "string",
+            "nullable": true
+          },
+          "pRoom": {
+            "type": "string",
+            "nullable": true
+          },
+          "pChildID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pDtFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pDtTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "siteID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true
+          },
+          "wc": {
+            "type": "string",
+            "nullable": true
+          },
+          "bookedHours": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bookingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeSlot": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionsBookedHoursPagedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SessionsBookedHours"
           },
           "pageNumber": {
             "type": "integer",
