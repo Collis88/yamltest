@@ -1239,6 +1239,15 @@
             }
           },
           {
+            "name": "includeCreditedSessions",
+            "in": "query",
+            "description": "include credited sessions",
+            "schema": {
+              "type": "boolean",
+              "description": "include credited sessions"
+            }
+          },
+          {
             "name": "pageNumber",
             "in": "query",
             "description": "set to 0 to disable paging (pageSize must also be 0)",
