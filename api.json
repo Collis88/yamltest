@@ -3,7 +3,7 @@
   "info": {
     "title": "Connect Childcare API",
     "description": "Connect Childcare Reporting API ",
-    "version": "1.0.35.0"
+    "version": "1.0.36.0"
   },
   "paths": {
     "/api/v1/Account/login": {
@@ -4424,6 +4424,10 @@
           "startDate_year": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "fundingCodes": {
+            "type": "string",
             "nullable": true
           }
         },
